@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.5.0] - 2026-06-02
+
+### Added
+
+- JSON output for section-level analysis
+- `--json` CLI flag for machine-readable stdout
+- Shared report builder for text and JSON output
+
+### Notes
+
+- This release makes the analysis results easy to consume programmatically
+
 ## [v0.4.0] - 2026-06-02
 
 ### Added
