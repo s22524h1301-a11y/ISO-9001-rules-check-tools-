@@ -3,6 +3,11 @@ from iso9001_rules_check_tools.matcher import match_section
 from iso9001_rules_check_tools.models import Section
 
 
+def _pick_catalog(*clause_ids: str):
+    catalog = default_clause_catalog()
+    return tuple(clause for clause in catalog if clause.clause_id in clause_ids)
+
+
 def test_quality_policy_section_prefers_clause_5_2():
     section = Section(
         section_id="2.1",
@@ -57,13 +62,56 @@ def test_matcher_returns_all_positive_matches_without_truncation():
         heading="Quality policy documented information objective background context",
         body="organization quality policy communicate quality objectives planning documented information records context internal issues external issues",
     )
-    catalog = (
-        default_clause_catalog()[0],
-        default_clause_catalog()[1],
-        default_clause_catalog()[2],
-        default_clause_catalog()[3],
-    )
+    catalog = _pick_catalog("4.1", "5.2", "6.2", "7.5")
 
     matches = match_section(section, catalog)
 
     assert {match.clause_id for match in matches} == {"4.1", "5.2", "6.2", "7.5"}
+
+
+def test_internal_audit_section_matches_clause_9_2():
+    section = Section(
+        section_id="9.2.1",
+        heading="Internal audit",
+        body="The organization shall conduct internal audits and report the results.",
+    )
+
+    matches = match_section(section, default_clause_catalog())
+
+    assert matches[0].clause_id == "9.2"
+
+
+def test_management_review_section_matches_clause_9_3():
+    section = Section(
+        section_id="9.3.1",
+        heading="Management review",
+        body="Top management shall review the quality management system.",
+    )
+
+    matches = match_section(section, default_clause_catalog())
+
+    assert matches[0].clause_id == "9.3"
+
+
+def test_corrective_action_section_matches_clause_10_2():
+    section = Section(
+        section_id="10.2.1",
+        heading="Corrective action",
+        body="The organization shall react to nonconformity and take corrective action.",
+    )
+
+    matches = match_section(section, default_clause_catalog())
+
+    assert matches[0].clause_id == "10.2"
+
+
+def test_continual_improvement_section_matches_clause_10_3():
+    section = Section(
+        section_id="10.3.1",
+        heading="Continual improvement",
+        body="The organization shall continually improve the suitability, adequacy and effectiveness of the QMS.",
+    )
+
+    matches = match_section(section, default_clause_catalog())
+
+    assert matches[0].clause_id == "10.3"

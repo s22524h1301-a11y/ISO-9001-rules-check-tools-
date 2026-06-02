@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.7.0] - 2026-06-02
+
+### Added
+
+- Expanded the ISO 9001 clause catalog through chapters 4 to 10
+- Added representative matcher coverage for clauses in chapters 9 and 10
+
+### Changed
+
+- Reduced a few overly broad documented-information keywords to avoid false positives
+
+### Notes
+
+- This release makes the clause coverage much broader while keeping the matcher conservative
+
 ## [v0.6.0] - 2026-06-02
 
 ### Changed

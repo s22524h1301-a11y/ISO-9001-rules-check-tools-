@@ -1,6 +1,6 @@
 # ISO 9001 Rules Check Tools
 
-Current version: `v0.6.0`
+Current version: `v0.7.0`
 
 一個用來分析 PDF 文件內容，並找出文件段落或小節可能對應哪些 ISO 9001 條文的小工具。
 
@@ -113,5 +113,5 @@ pytest tests/test_cli.py tests/test_matcher.py -v
 
 ## Release Status
 
-- v0.4.0 connects section parsing with clause matching in the CLI report.
-- The pipeline now goes from PDF text extraction to section parsing to clause association.
+- v0.7.0 expands the ISO 9001 clause catalog through chapters 4 to 10.
+- The pipeline now goes from PDF text extraction to section parsing to clause association and broader clause coverage.
