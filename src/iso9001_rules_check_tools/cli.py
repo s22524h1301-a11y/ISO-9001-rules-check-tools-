@@ -2,6 +2,7 @@ import argparse
 import sys
 
 from iso9001_rules_check_tools.pdf_reader import PdfTextExtractionError, extract_pdf_text
+from iso9001_rules_check_tools.reporter import render_section_report
 from iso9001_rules_check_tools.section_parser import split_into_sections
 
 
@@ -21,9 +22,5 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     sections = split_into_sections(text)
-    for section in sections:
-        print(f"[{section.section_id}] {section.heading}")
-        if section.body:
-            print(section.body)
-        print()
+    print(render_section_report(sections), end="")
     return 0

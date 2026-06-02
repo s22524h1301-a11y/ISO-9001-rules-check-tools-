@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.4.0] - 2026-06-02
+
+### Added
+
+- Section-level clause matching in the CLI report
+- Clause IDs and reasons shown under each section
+- Report output that combines parsing and matching
+
+### Notes
+
+- This release connects the analysis pipeline end to end up to clause association
+
 ## [v0.3.0] - 2026-06-02
 
 ### Added

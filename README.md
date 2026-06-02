@@ -1,6 +1,6 @@
 # ISO 9001 Rules Check Tools
 
-Current version: `v0.3.0`
+Current version: `v0.4.0`
 
 一個用來分析 PDF 文件內容，並找出文件段落或小節可能對應哪些 ISO 9001 條文的小工具。
 
@@ -53,7 +53,7 @@ python -m iso9001_rules_check_tools --help
 python -m iso9001_rules_check_tools path/to/document.pdf
 ```
 
-The CLI now prints section headings and bodies, and it exits with a non-zero code if the PDF has no extractable text.
+The CLI now prints section headings, matched clause IDs, and bodies, and it exits with a non-zero code if the PDF has no extractable text.
 
 目前專案還在第一階段，完整的 PDF 分析流程會在後續版本持續補上。
 
@@ -106,3 +106,8 @@ pytest tests/test_cli.py tests/test_matcher.py -v
 目前的重點是先把「PDF 文字分析 + ISO 9001 條文對應」這條主流程穩定下來，再逐步擴充功能。
 
 開發與版本規則請見 [docs/VERSIONING.md](/C:/Users/qc00/Documents/codex/iso9001-rules-check-tools/docs/VERSIONING.md)
+
+## Release Status
+
+- v0.4.0 connects section parsing with clause matching in the CLI report.
+- The pipeline now goes from PDF text extraction to section parsing to clause association.

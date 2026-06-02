@@ -30,3 +30,20 @@ def test_cli_prints_section_headings_and_bodies(tmp_path: Path):
     assert result.returncode == 0
     assert "[1] 1. Introduction" in result.stdout
     assert "[2] 2. Quality policy" in result.stdout
+
+
+def test_cli_prints_matched_clause_ids(tmp_path: Path):
+    pdf_path = tmp_path / "policy.pdf"
+    _write_text_pdf(
+        pdf_path,
+        "1. Quality policy\nThe organization shall establish a quality policy and communicate it.",
+    )
+
+    result = subprocess.run(
+        [sys.executable, "-m", "iso9001_rules_check_tools", str(pdf_path)],
+        capture_output=True,
+        text=True,
+    )
+
+    assert result.returncode == 0
+    assert "5.2" in result.stdout
