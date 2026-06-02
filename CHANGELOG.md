@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.2.0] - 2026-06-02
+
+### Added
+
+- PDF text extraction for selectable-text PDFs
+- CLI wiring that prints extracted text directly
+- Hard failure when no extractable text is available
+
+### Notes
+
+- This release adds the first working PDF analysis layer
+
 ## [v0.1.2] - 2026-06-02
 
 ### Fixed

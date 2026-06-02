@@ -1,6 +1,6 @@
 # ISO 9001 Rules Check Tools
 
-Current version: `v0.1.2`
+Current version: `v0.2.0`
 
 一個用來分析 PDF 文件內容，並找出文件段落或小節可能對應哪些 ISO 9001 條文的小工具。
 
@@ -48,6 +48,12 @@ pip install -e ".[dev]"
 ```bash
 python -m iso9001_rules_check_tools --help
 ```
+
+```bash
+python -m iso9001_rules_check_tools path/to/document.pdf
+```
+
+The CLI now prints the extracted text directly, and it exits with a non-zero code if the PDF has no extractable text.
 
 目前專案還在第一階段，完整的 PDF 分析流程會在後續版本持續補上。
 
