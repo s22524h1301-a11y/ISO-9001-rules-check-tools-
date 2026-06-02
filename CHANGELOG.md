@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.3.0] - 2026-06-02
+
+### Added
+
+- Section splitting for extracted PDF text
+- CLI output that prints section IDs, headings, and bodies
+- Whole-document fallback when no structure is detected
+
+### Notes
+
+- This release adds the second analysis layer in the pipeline
+
 ## [v0.2.0] - 2026-06-02
 
 ### Added
