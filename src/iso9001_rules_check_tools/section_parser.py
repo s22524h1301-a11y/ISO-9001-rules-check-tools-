@@ -5,6 +5,7 @@ import re
 from iso9001_rules_check_tools.models import Section
 
 _NUMBERED_HEADING_RE = re.compile(r"^\s*\d+(?:\.\d+)*[.)]?\s+\S+")
+_NUMBER_ONLY_HEADING_RE = re.compile(r"^\s*\d+(?:\.\d+)*[.)]?\s*$")
 _SHORT_HEADING_RE = re.compile(r"^[A-Z][A-Za-z0-9 ,:/&()\-]{0,80}$")
 
 
@@ -67,4 +68,18 @@ def split_into_sections(text: str) -> tuple[Section, ...]:
 
 
 def _is_heading(line: str) -> bool:
-    return bool(_NUMBERED_HEADING_RE.match(line) or _SHORT_HEADING_RE.match(line))
+    if _NUMBERED_HEADING_RE.match(line) or _SHORT_HEADING_RE.match(line):
+        return True
+    if _NUMBER_ONLY_HEADING_RE.match(line):
+        return True
+    return bool(_looks_like_numbering_prefix(line))
+
+
+def _looks_like_numbering_prefix(line: str) -> bool:
+    match = re.match(r"^\s*(\d+(?:\.\d+)*)\s+(.+)$", line)
+    if not match:
+        return False
+    number_part, remainder = match.groups()
+    if not number_part:
+        return False
+    return remainder[0].isupper() or remainder[0].isdigit()

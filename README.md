@@ -1,6 +1,6 @@
 # ISO 9001 Rules Check Tools
 
-Current version: `v0.5.0`
+Current version: `v0.6.0`
 
 一個用來分析 PDF 文件內容，並找出文件段落或小節可能對應哪些 ISO 9001 條文的小工具。
 

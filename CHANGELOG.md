@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.6.0] - 2026-06-02
+
+### Changed
+
+- Improved section splitting to recognize nested numbering like `1`, `1.1`, and `1.1.1`
+- Kept the whole-document fallback for unstructured text
+- Preserved the existing flat `Section` output model
+
+### Notes
+
+- This release makes the parser more reliable for real-world ISO-style documents
+
 ## [v0.5.0] - 2026-06-02
 
 ### Added
