@@ -102,6 +102,12 @@ For each section, the tool returns:
 4. Add richer export formats if needed
 5. Consider a web UI later
 
+### Future directions
+
+- Keep keyword-based matching as the default approach
+- Optionally add an OpenAI API integration for analysis assistance
+- Use the API-assisted mode to improve match quality when keyword search alone is not enough
+
 ### Testing
 
 ```bash
@@ -218,6 +224,12 @@ CLI 預設會輸出段落標題、條文命中結果和段落內容；如果加�
 3. 串接條文比對與輸出
 4. 提供 JSON 或報表輸出
 5. 視需求加入 Web UI
+
+### 未來方向
+
+- 預設仍以關鍵字搜尋比對為主
+- 未來可選擇串接 OpenAI API 作為輔助分析工具
+- 在關鍵字比對不夠準確時，可用 API 輔助提升分析成功率
 
 ### 測試
 
