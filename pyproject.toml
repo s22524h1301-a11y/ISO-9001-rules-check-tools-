@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iso9001-rules-check-tools"
+version = "0.1.0"
+description = "Suggest likely ISO 9001 clauses for sections of a PDF"
+requires-python = ">=3.12"
+dependencies = ["pypdf>=5.0.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0", "reportlab>=4.0.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
