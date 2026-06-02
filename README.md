@@ -60,20 +60,6 @@ python -m iso9001_rules_check_tools --help
 - 可能對應的 ISO 9001 條文
 - 條文對應理由
 
-## 版本制度
-
-本專案使用 `SemVer` 風格的版本號，格式為 `v0.x.y`。
-
-- `patch`：文件修正、bug fix、小調整
-- `minor`：新增一個可用功能
-- `major`：有破壞性變更，流程或輸出大改
-
-每次有對外可辨識的進展時，會同步：
-
-- 更新 `pyproject.toml` 的版本號
-- 更新 `CHANGELOG.md`
-- 視情況加上 Git tag，例如 `v0.1.1`
-
 ## 目前進度
 
 - [x] 專案骨架
@@ -112,3 +98,5 @@ pytest tests/test_cli.py tests/test_matcher.py -v
 這是一個持續開發中的 MVP。
 
 目前的重點是先把「PDF 文字分析 + ISO 9001 條文對應」這條主流程穩定下來，再逐步擴充功能。
+
+開發與版本規則請見 [docs/VERSIONING.md](/C:/Users/qc00/Documents/codex/iso9001-rules-check-tools/docs/VERSIONING.md)
