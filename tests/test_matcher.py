@@ -37,3 +37,33 @@ def test_policing_words_do_not_create_false_matches():
     matches = match_section(section, default_clause_catalog())
 
     assert [match.clause_id for match in matches] == ["7.5"]
+
+
+def test_single_clear_keyword_match_is_kept_without_title_hit():
+    section = Section(
+        section_id="5.2.1",
+        heading="Internal memo",
+        body="policy",
+    )
+
+    matches = match_section(section, default_clause_catalog())
+
+    assert matches[0].clause_id == "5.2"
+
+
+def test_matcher_returns_all_positive_matches_without_truncation():
+    section = Section(
+        section_id="x",
+        heading="Quality policy documented information objective background context",
+        body="organization quality policy communicate quality objectives planning documented information records context internal issues external issues",
+    )
+    catalog = (
+        default_clause_catalog()[0],
+        default_clause_catalog()[1],
+        default_clause_catalog()[2],
+        default_clause_catalog()[3],
+    )
+
+    matches = match_section(section, catalog)
+
+    assert {match.clause_id for match in matches} == {"4.1", "5.2", "6.2", "7.5"}

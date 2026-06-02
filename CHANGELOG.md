@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.1.2] - 2026-06-02
+
+### Fixed
+
+- Allow single clear keyword matches to be kept in the matcher
+- Remove the hard cap that truncated positive matches to three results
+
+### Notes
+
+- This release updates the patch version after the matcher fix
+
 ## [v0.1.1] - 2026-06-02
 
 ### Changed

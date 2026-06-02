@@ -26,8 +26,6 @@ def _score_section_against_clause(section: Section, clause: Clause) -> ClauseMat
         if _keyword_matches(_normalize(keyword), section_text)
     )
     score = len(matched_keywords) + (2 if title_hits else 0)
-    if not title_hits and len(matched_keywords) < 2:
-        score = 0
     reason_parts = []
     if title_hits:
         reason_parts.append("title hit: " + ", ".join(title_hits))
@@ -68,4 +66,4 @@ def match_section(
         catalog = default_clause_catalog()
     ranked = tuple(_score_section_against_clause(section, clause) for clause in catalog)
     positive_matches = tuple(match for match in ranked if match.score > 0)
-    return tuple(sorted(positive_matches, key=lambda match: -match.score))[:3]
+    return tuple(sorted(positive_matches, key=lambda match: -match.score))
